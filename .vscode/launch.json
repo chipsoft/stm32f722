@@ -1,0 +1,60 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/stm32f722.elf",
+            "name": "Debug STLink",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "stlink",
+            "preLaunchTask": "Build Project",
+            "stlinkPath": "/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.macos64_2.0.200.202202231230/tools/bin/ST-LINK_gdbserver",
+            "stm32cubeprogrammer": "/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.macos64_2.0.200.202202231230/tools/bin",
+            "armToolchainPath": "/Applications/ARM/bin",
+            "device": "STM32F72x",
+            "interface": "swd",
+            //"serialNumber": "", // if Multiple Debuggers attached
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw",
+            // "svdFile": "${workspaceRoot}/svd/STM32F7x9.svd",
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/stm32f722.elf",
+            "name": "Debug OpenOCD",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "Build Project",
+            "device": "stlink",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f7x.cfg"
+            ],
+            "armToolchainPath": "/Applications/ARM/bin",
+            //"interface": "swd",
+            //"serialNumber": "", // if Multiple Debuggers attached
+            "runToEntryPoint": "main",
+            //"showDevDebugOutput": "raw",
+            // "svdFile": "${workspaceRoot}/svd/STM32F7x9.svd",
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug J-Link",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "Build and Flash",
+            "executable": "./build/bt_soc_blinky.elf",
+            "serverpath": "/Applications/SEGGER/JLink/JLinkGDBServerCLExe", 
+            "servertype": "jlink",
+            "device": "EFR32MG22CXXXF512",
+            "interface": "swd",
+            // "serialNumber": "", //If you have more than one J-Link probe, add the serial number here.
+            //"jlinkscript":"${workspaceRoot}/BSP/SEGGER/K66FN2M0_emPower/Setup/Kinetis_K66_Target.js",
+            "runToEntryPoint": "main",
+            // "showDevDebugOutput": "raw",
+            "svdFile": "${workspaceRoot}/SVD/EFR32MG22C224F512IM40.svd" 
+        }
+    ]
+}

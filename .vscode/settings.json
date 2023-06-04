@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "oslib_test_root.h": "c",
+        "ch.h": "c",
+        "hal.h": "c",
+        "rt_test_root.h": "c"
+    }
+}
